@@ -16,10 +16,10 @@ services:
       - 6800:6800
     restart: unless-stopped
 
-  owncloud:
-    image: owncloud
-    container_name: fpf-owncloud
-    volumes:
-      - "/www/ownData:/var/www/html"
+  nextcloud:
+    image: nextcloud
     ports:
-      - 8021:80
+      - 8080:80
+    volumes:
+      - /www/download:/var/www/html
+    restart: always
