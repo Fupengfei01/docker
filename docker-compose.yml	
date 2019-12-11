@@ -1,20 +1,32 @@
-version: '3'
+version: '2'
 
 services:
-  h5ai:
-    image: bixidock/h5ai
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: filerun
+      MYSQL_USER: filerun
+      MYSQL_PASSWORD: filerun
+      MYSQL_DATABASE: filerun
+    restart: always
+  web:
+    depends_on:
+      - db
+    links:
+      - db
+    image: afian/filerun
     volumes:
-      - /www/download:/var/www:rw
+      - /www/download:/user-files:rw
     restart: always
   aria2:
-    image: wahyd4/aria2-ui:h5ai
+    image: wahyd4/aria2-ui:filerun
+    links:
+      - web:file-manager
     ports:
       - "8021:80"
       - "6800:6800"
-    volumes:
-      - /www/download:/var/www:rw
     environment:
       - RPC_SECRET=fpf
-    links:
-      - h5ai:file-manager
+    volumes:
+      - /www/download:/user-files:rw
     restart: always
