@@ -17,9 +17,9 @@ services:
     restart: unless-stopped
 
   nextcloud:
-    image: nextcloud
-    ports:
-      - 8080:80
-    volumes:
-      - /www/download:/var/www/html
-    restart: always
+      image: nextcloud
+      ports:
+        - 8021:80
+      volumes:
+        - /www/download:/data/fpf/files:rw
+      restart: always
