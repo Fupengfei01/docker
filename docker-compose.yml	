@@ -36,4 +36,4 @@ services:
     ports:
       - "8021:80"
     volumes:
-      - /www/download:/user-files"
+      - /www/download:/var/www/html/system/data/default_home_folder"
