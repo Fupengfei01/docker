@@ -1,0 +1,1 @@
+docker run --name=pan  -dti -p 8021:80 -p 6800:6800 jaegerdocker/pan
