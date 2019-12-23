@@ -31,9 +31,6 @@ services:
     links:
       - db
     image: afian/filerun
-    environment:
-      - PUID=1026
-      - PGID=100
     ports:
       - 8021:80
     volumes:
