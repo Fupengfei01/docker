@@ -34,4 +34,4 @@ services:
     ports:
       - 8021:80
     volumes:
-      - /www/download:/user-files
+      - /www/download:/user-files:rw
