@@ -1,7 +1,27 @@
 {
   "inbounds": [
     {
-      "port": 443,
+      "port": 8080,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "b930a048-0c65-468c-a51d-589479aafb80",
+            "alterId": 64,
+            "security": "chacha20-poly1305"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/fpfconfig"
+        }
+      }
+    },
+    {
+      "port": 8888,
       "protocol": "vmess",
       "settings": {
         "clients": [
